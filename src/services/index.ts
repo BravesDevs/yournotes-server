@@ -4,3 +4,5 @@ export {
   notesUpdateService,
   notesDeleteService,
 } from "./notes";
+
+export { userRegistrationService } from "./users";

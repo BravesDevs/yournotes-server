@@ -1,7 +1,7 @@
 import { default as express } from "express";
 import { default as cors } from "cors";
 import { config } from "./configurations";
-import { notesRoutes } from "./routes";
+import { notesRoutes, userRoutes } from "./routes";
 
 class YourNotesServiceApp {
   private port: number;
@@ -43,6 +43,7 @@ class YourNotesServiceApp {
 
   private initializeSystemRoutes() {
     this.app.use("/api", notesRoutes);
+    this.app.use("/api", userRoutes);
     this.app.use("/", (req, res, next) => {
       res.status(200).send("Email Service is running...");
       next();

@@ -11,11 +11,11 @@ datasource db {
 }
 
 model Note {
-  id        Int      @id @default(autoincrement())                                                                                                    
+  id        Int       @id @default(autoincrement())
   title     String
   content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   // References
   authorId Int
@@ -23,35 +23,43 @@ model Note {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  firstName String
-  lastName  String
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  firstName    String
+  lastName     String
+  password     String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt
+  programId    Int
+  departmentId Int
 
   // References
-  notes Note[]
+  notes      Note[]
+  program    Program?    @relation(fields: [programId], references: [id])
+  department Department? @relation(fields: [departmentId], references: [id])
 }
 
 model Program {
-  id         Int      @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   intakeYear Int
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime? @updatedAt
 
   // References
   courseId Int
   course   Course @relation(fields: [courseId], references: [id])
+  users    User[]
+
+  // Unique constraint on intakeYear and courseId
+  @@unique([intakeYear, courseId])
 }
 
 model Course {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
   code      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   // References
   departmentId Int
@@ -60,11 +68,13 @@ model Course {
 }
 
 model Department {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  // Default null
+  updatedAt DateTime? @updatedAt
 
   // References
   courses Course[]
+  users   User[]
 }

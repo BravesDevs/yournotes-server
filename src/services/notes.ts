@@ -13,14 +13,13 @@ export const notesListService = async () => {
 };
 
 export const notesCreateService = async (data) => {
-  const { title, content } = data;
-
-  return await prisma.note.create({
-    data: {
-      title,
-      content,
-    },
-  });
+  // const { title, content } = data;
+  // return await prisma.note.create({
+  //   data: {
+  //     title,
+  //     content,
+  //   },
+  // });
 };
 
 export const notesUpdateService = async (id: number, data) => {
