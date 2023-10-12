@@ -49,6 +49,9 @@ model Program {
   courseId Int
   course   Course @relation(fields: [courseId], references: [id])
   users    User[]
+
+  // Unique constraint on intakeYear and courseId
+  @@unique([intakeYear, courseId])
 }
 
 model Course {
