@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Note {
-  id        Int      @id @default(autoincrement())                                                                                                    
+  id        Int      @id @default(autoincrement())
   title     String
   content   String
   createdAt DateTime @default(now())
@@ -23,16 +23,20 @@ model Note {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  firstName String
-  lastName  String
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  firstName    String
+  lastName     String
+  password     String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  programId    Int
+  departmentId Int
 
   // References
-  notes Note[]
+  notes      Note[]
+  program    Program?    @relation(fields: [programId], references: [id])
+  department Department? @relation(fields: [departmentId], references: [id])
 }
 
 model Program {
@@ -44,6 +48,7 @@ model Program {
   // References
   courseId Int
   course   Course @relation(fields: [courseId], references: [id])
+  users    User[]
 }
 
 model Course {
@@ -60,11 +65,13 @@ model Course {
 }
 
 model Department {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  // Default null
+  updatedAt DateTime? @updatedAt
 
   // References
   courses Course[]
+  users   User[]
 }
