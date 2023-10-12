@@ -11,11 +11,11 @@ datasource db {
 }
 
 model Note {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   // References
   authorId Int
@@ -23,13 +23,13 @@ model Note {
 }
 
 model User {
-  id           Int      @id @default(autoincrement())
-  email        String   @unique
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
   firstName    String
   lastName     String
   password     String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt
   programId    Int
   departmentId Int
 
@@ -40,10 +40,10 @@ model User {
 }
 
 model Program {
-  id         Int      @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   intakeYear Int
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime? @updatedAt
 
   // References
   courseId Int
@@ -52,11 +52,11 @@ model Program {
 }
 
 model Course {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
   code      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
 
   // References
   departmentId Int
