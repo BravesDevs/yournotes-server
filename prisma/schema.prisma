@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Note {
+  id        Int      @id @default(autoincrement())                                                                                                    
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // References
+  authorId Int
+  author   User @relation(fields: [authorId], references: [id])
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  firstName String
+  lastName  String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // References
+  notes Note[]
+}
+
+model Program {
+  id         Int      @id @default(autoincrement())
+  intakeYear Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // References
+  courseId Int
+  course   Course @relation(fields: [courseId], references: [id])
+}
+
+model Course {
+  id        Int      @id @default(autoincrement())
+  name      String
+  code      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // References
+  departmentId Int
+  department   Department @relation(fields: [departmentId], references: [id])
+  programs     Program[]
+}
+
+model Department {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // References
+  courses Course[]
+}

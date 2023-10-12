@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Environment variables
+.env
+
+# Build output
+dist/
+build/
+out/
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+#Package JSON
+package-lock.json
+
+# OS generated files
+*.7z
+*.dmg
+*.gz
+*.iso
