@@ -1,33 +1,34 @@
-Welcome to "Yournotes-Server Repo" 📝💌
+# Yournotes Server 📝💌
 
-This open-source project is a cutting-edge social media platform that combines the power of concise notes and expressive cards to revolutionize online communication. Say goodbye to lengthy posts and hello to a more visually engaging, information-packed social experience.
+Welcome to Yournotes Server, an open-source social media platform that combines concise notes and expressive cards to transform online communication. Say goodbye to lengthy posts and hello to a more visually engaging, information-packed social experience.
 
-📌 Key Features:
+## Key Features
 
-🗂 Organize with Notes: Create and share concise, information-rich notes with ease. Perfect for quick updates, thoughts, and knowledge sharing.
+- 🗂 **Organize with Notes**: Create and easily share concise, information-rich notes. Perfect for quick updates, thoughts, and knowledge sharing.
 
-💌 Express with Cards: Craft visually appealing cards to share stories, photos, and multimedia content in a beautiful and engaging format.
+- 💌 **Express with Cards**: Craft visually appealing cards to share stories, photos, and multimedia content in a beautiful and engaging format.
 
-🚀 Effortless Social Connection: Connect with friends, family, and like-minded individuals through an intuitive, user-friendly interface.
+- 🔗 **Seamless Collaboration**: Collaborate on notes and cards, making working together easier on projects or sharing your ideas.
 
-🔗 Seamless Collaboration: Collaborate on notes and cards, making it easier than ever to work together on projects or simply share your ideas.
+- 🧩 **Open Source**: Built with love by the community, for the community. Contribute, customize, and extend the platform as you see fit.
 
-📈 Analytics & Insights: Dive into detailed analytics to understand your audience and gain insights into your social presence.
+Join our mission to transform social media into a more efficient, visually captivating, and informative experience. Let's build the future of online communication together!
 
-🌐 Cross-Platform: Access your content from desktop, mobile, and more, ensuring you're always connected.
+## Getting Started
 
-🔒 Privacy & Security: Your data is your business. We prioritize your privacy and offer robust security features to keep your information safe.
+To use the Yournotes Server, follow these steps:
 
-🧩 Open Source: Built with love by the community, for the community. Contribute, customize, and extend the platform as you see fit.
+1. **Install Node**: Download and install Node.js from [node.org](https://nodejs.org/).
 
-🌟 Join our mission to transform social media into a more efficient, visually captivating, and informative experience. Let's build the future of online communication together!
+2. **Install Dependencies**: Run the following command in your project's root directory to install the necessary dependencies:
 
-📢 Don't forget to star this repository and get involved. Together, we can redefine social media for the better.
-
-👉 Check out our website: [Your Website URL]
-
-📄 Documentation: [Link to Documentation]
-
-📧 Have questions or feedback? Reach out to us at [Your Contact Email]
-
-🚀 Let's shape the future of social media, one note and card at a time. 💬👥
+   ```sh
+   npm install
+3. **Update Environment Configuration**: Configure the required environment variables for your database in your project.
+4. **Database Migration**: Apply any database changes by running the following command:
+  
+   ```sh
+   npx prisma db push
+5. **Start** the server.
+   ```sh
+   npm run start
