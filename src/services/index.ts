@@ -5,4 +5,4 @@ export {
   notesDeleteService,
 } from "./notes";
 
-export { userRegistrationService } from "./users";
+export { userRegistrationService, userLoginService } from "./users";

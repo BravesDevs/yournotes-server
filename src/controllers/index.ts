@@ -5,4 +5,4 @@ export {
   notesDeleteController,
 } from "./notes";
 
-export { userRegistrationController } from "./users";
+export { userRegistrationController, userLoginController } from "./users";
