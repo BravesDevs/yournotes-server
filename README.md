@@ -10,7 +10,7 @@ Welcome to Yournotes Server, an open-source social media platform that combines 
 
 - 🔗 **Seamless Collaboration**: Collaborate on notes and cards, making working together easier on projects or sharing your ideas.
 
-- 🧩 **Open Source**: Built with love by the community, for the community. Contribute, customize, and extend the platform as you see fit.
+- 🧩 **Open Source**: For the community. Contribute, customize, and extend the platform as you see fit.
 
 Join our mission to transform social media into a more efficient, visually captivating, and informative experience. Let's build the future of online communication together!
 
