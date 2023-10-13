@@ -15,6 +15,7 @@ export const userRegistrationController = async (req, res, next) => {
     });
 
     res.status(201).json({
+      ok: true,
       message: "User created successfully",
       data: user,
     });
@@ -35,6 +36,7 @@ export const userLoginController = async (req, res, next) => {
     });
 
     res.status(200).json({
+      ok: true,
       message: "User logged in successfully",
       data: user,
     });

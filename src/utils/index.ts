@@ -1,1 +1,1 @@
-export { generateHash, compareHash } from "./helpers";
+export { generateHash, compareHash, generateJWT } from "./helpers";

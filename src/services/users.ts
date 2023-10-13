@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { userLoginDTO, userRegistrationDTO } from "../common/dtoSchema";
-import { generateHash, compareHash } from "../utils";
+import { generateHash, compareHash, generateJWT } from "../utils";
 
 const prisma = new PrismaClient();
 
@@ -66,7 +66,11 @@ export const userLoginService = async (data: userLoginDTO) => {
       throw new Error("Invalid password");
     }
 
-    return isUserExists;
+    const access_token = await generateJWT(isUserExists.id, isUserExists.email);
+
+    return { access_token };
+
+    // Generate JWT Access Token and Refresh Token
   } catch (error) {
     throw new Error(error.message);
   }
